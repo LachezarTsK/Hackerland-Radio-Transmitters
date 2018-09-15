@@ -12,7 +12,7 @@ public class Solution {
 		while (++index < locationsOfHouses.length) {
 
 			currentDistance = locationsOfHouses[index] - locationsOfHouses[index - 1];
-			// houses that can be before the transmitter
+			// houses that can be covered before the transmitter
 			while (currentDistance <= rangeOfTransmitter) {
 				if (index < locationsOfHouses.length - 1) {
 					index++;
