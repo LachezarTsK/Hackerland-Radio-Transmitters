@@ -12,6 +12,7 @@ public class Solution {
 		while (++index < locationsOfHouses.length) {
 
 			currentDistance = locationsOfHouses[index] - locationsOfHouses[index - 1];
+			
 			// houses that can be covered before the transmitter
 			while (currentDistance <= rangeOfTransmitter) {
 				if (index < locationsOfHouses.length - 1) {
@@ -23,6 +24,7 @@ public class Solution {
 			}
 
 			currentDistance = locationsOfHouses[index] - locationsOfHouses[index - 1];
+			
 			// houses that can be covered after the transmitter
 			while (currentDistance <= rangeOfTransmitter) {
 				if (index < locationsOfHouses.length - 1) {
@@ -43,6 +45,7 @@ public class Solution {
 			}
 		}
 
+		// check whether all houses can be covered by one transmitter
 		if (minNumberOfTransmitters == 0) {
 			minNumberOfTransmitters = 1;
 		}
