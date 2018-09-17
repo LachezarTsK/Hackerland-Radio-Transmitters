@@ -25,8 +25,8 @@ public class SolutionSecondVariant {
 		}
 
 		/*
-		 * Adds one more transmitter if there are remaining houses that are not covered
-		 * by the last transmitter.
+		 * Adds one transmitter if there are remaining houses that are not covered by
+		 * the last transmitter or if there is only one house.
 		 */
 		if (index > locationsOfHouses.length - 1 && currentDistance <= rangeOfTransmitter
 				&& minNumberOfTransmitters % 1 == 0) {
