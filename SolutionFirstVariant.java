@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SolutionFirstVariant {
+public class ThreeSolutionFirstVariant {
 
 	static int hackerlandRadioTransmitters(int[] locationsOfHouses, int rangeOfTransmitter) {
 		int minNumberOfTransmitters = 0;
@@ -12,7 +12,7 @@ public class SolutionFirstVariant {
 		while (++index < locationsOfHouses.length) {
 
 			currentDistance = locationsOfHouses[index] - locationsOfHouses[index - 1];
-			
+
 			// houses that can be covered before the transmitter
 			while (currentDistance <= rangeOfTransmitter) {
 				if (index < locationsOfHouses.length - 1) {
@@ -24,7 +24,7 @@ public class SolutionFirstVariant {
 			}
 
 			currentDistance = locationsOfHouses[index] - locationsOfHouses[index - 1];
-			
+
 			// houses that can be covered after the transmitter
 			while (currentDistance <= rangeOfTransmitter) {
 				if (index < locationsOfHouses.length - 1) {
@@ -34,24 +34,17 @@ public class SolutionFirstVariant {
 					break;
 				}
 			}
-
-			boolean lastHouses_NotCoveredByTheLastTransmitter = (index == locationsOfHouses.length - 1
-					&& currentDistance > rangeOfTransmitter);
-
-			if (lastHouses_NotCoveredByTheLastTransmitter) {
-				minNumberOfTransmitters += 2;
-			} else {
-				minNumberOfTransmitters++;
-			}
+			minNumberOfTransmitters++;
 		}
 
-		// check whether all houses can be covered by one transmitter
-		if (minNumberOfTransmitters == 0) {
-			minNumberOfTransmitters = 1;
+		/*
+		 * Adds one transmitter if there are remaining houses that are not covered by
+		 * the last transmitter or if there is only one house.
+		 */
+		if (currentDistance >= rangeOfTransmitter || locationsOfHouses.length == 1) {
+			minNumberOfTransmitters++;
 		}
-
 		return minNumberOfTransmitters;
-
 	}
 
 	public static void main(String[] args) {
