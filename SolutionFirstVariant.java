@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution {
+public class SolutionFirstVariant {
 
 	static int hackerlandRadioTransmitters(int[] locationsOfHouses, int rangeOfTransmitter) {
 		int minNumberOfTransmitters = 0;
